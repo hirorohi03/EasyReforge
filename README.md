@@ -1,4 +1,29 @@
-﻿# EasyReforge
+﻿# EasyReforge-Next
+
+This project is a fork of [EasyReforge](https://github.com/Zuntan03/EasyReforge).
+本プロジェクトはZuntan03氏の[EasyReforge](https://github.com/Zuntan03/EasyReforge)をベースにしたforkです。
+基本的な仕様はEasyReforgeを受け継いでいますが以下の違いがあります。
+- Stable Diffusion WebUI reForge本体、および拡張機能 (Extensions) を最新にアップデート、バージョン固定なし
+- Pyhton (venv) を3.10.6から3.10.11にアップデート
+- PyTorchを2.7.1から2.9.1にアップデート, Triton, Sageattentionもそれに対応するものにアップデート
+- 拡張機能stable-diffusion-webui-wd14-taggerをBocchi-Chan2023版から67372a版に変更
+- 拡張機能の追加
+	- sd-webui-prompt-all-in-one
+	- model-keyword
+	- sd-webui-cutoff
+	- sd-webui-enable-checker
+- reForge本体のソースコードパッチによるControlNet Preprocessorの削除
+    - inpaint_only_noobai_xl+lama
+	- inpaint_only_noobai_xl
+- ローカル LLM チャット (llama.cpp) の削除
+
+このforkについてわからないことや不具合や要望がありましたら、 [@hirorohi03](https://x.com/hirorohi003) や [Issues](https://github.com/hirorohi03/EasyReforge/issues)  にお知らせください。
+Zuntan03氏や元のEasyReforgeへの問い合わせは絶対におやめください。
+
+以降は基本的に元のEasyReforgeのドキュメントの内容です。
+
+---
+# EasyReforge
 
 [reForge](https://github.com/Panchovix/stable-diffusion-webui-reForge) でお手軽に高速画像生成する EasyReforge です。  
 [NoobAi](https://civitai.com/models/833294) の Epsilon-Prediction 版 ( **NoobE** ) と V-Prediction 版 ( **NoobV** ) を主に扱います。
@@ -12,7 +37,7 @@
 
 ## インストール方法
 
-1.  [EasyReforgeInstaller.bat](https://github.com/Zuntan03/EasyReforge/raw/main/EasyReforge/EasyReforgeInstaller.bat?ver=1) を右クリックから保存します。
+1.  [EasyReforgeInstaller.bat](https://github.com/hirorohi03/EasyReforge/raw/main/EasyReforge/EasyReforgeInstaller.bat?ver=1) を右クリックから保存します。
 	- NVIDIA GPU の Windows PC、20GB 以上の空きストレージ、PC の管理者権限、アバストなどの Windows Diffender でないウィルスチェック無効化、VPN の無効化が必要です。
 2. `C:/EasyReforge/` などの浅いパスのインストール先の **空フォルダ** で、`EasyReforgeInstaller.bat` をダブルクリックして実行します。
 	- **`WindowsによってPCが保護されました` と表示されたら、`詳細表示` から `実行` します。**
@@ -92,7 +117,7 @@
 **NoobAI の V-Prediction 版は開発中です。**  
 **現時点では V-Prediction & ZTSNR に対応した高速化 LoRA も存在しないため、強引な対応により品質が落ちています（が、その代わりに 3060 で FullHD を 10秒で生成できます）。**
 
-[追加データのダウンロード](https://github.com/Zuntan03/EasyReforge/#追加データのダウンロード) で Civitai キーを設定してから、`Download/` にある `NoobAiVPred_StandardModels.bat` で V-Pred のモデルや LoRA をダウンロードします。
+[追加データのダウンロード](https://github.com/hirorohi03/EasyReforge/#追加データのダウンロード) で Civitai キーを設定してから、`Download/` にある `NoobAiVPred_StandardModels.bat` で V-Pred のモデルや LoRA をダウンロードします。
 
 1. 左下にある `Advanced Model Sampling for reForge` を開いて `Enable Advanced Model Sampling` を有効にします。
 	- V-Pred や ZTSNR 自動判定機能は派生モデルで正常に動作しない場合があるようですのでご注意ください。
@@ -105,96 +130,14 @@ E-Pred に戻すときも同様です。
 1. `DMD2[4]: LCM, SGM Uniform 📋↙` を選択して、`📋` と `↙` で適用します。
 1. 左下にある `Advanced Model Sampling for reForge` を開いて `Enable Advanced Model Sampling` を無効にします。
 
-## 最近の更新内容
-
 - **更新で編集したスタイルが巻き戻った場合は、`stable-diffusion-webui-reForge\sytles.csv` の横にある日付付きバックアップファイルからコピペして復元してください。**
 
-### 2025/09/21
-
-- `Download\Stable-diffusion\NoobV\ObsessionV_v20.bat` のバージョンを更新しました。
-
-### 2025/09/16
-
-- `Download\Stable-diffusion\Illu\WaiNsfw_v15.bat` のバージョンを更新しました。
-
-### 2025/07/12
-
-- `Download\Lora\Illu_Char\Takopī_no_Genzai.bat` を追加しました。
-
-### 2025/07/06
-
-- ControlNet の AnyTest プリセットで `Sdxl/AnyTest_Dim64_v10` を使用するように変更しました。
-	- EasyReforge の高速生成環境では LLLite ControlNet の AnyTest と相性が良いようで、Animagine や Pony に依存していない旧バージョンで打率が高く見えています。
-		- [`anytest?_illustrious2`](https://huggingface.co/2vXpSwA7/iroiro-lora/commit/bb4a39142275ac975ae4e6a64d1df218f672e0f0) の LLLite 版がリリースされれば、そちらのほうが打率が高くなる可能性があります。
-- スタイルのプリセットに `Illu HyDmd[4]: LCM, Beta` を追加しました。
-	- **編集したスタイルが Update.bat で巻き戻ります。**  
-	**スタイルを編集していた場合は `stable-diffusion-webui-reForge\sytles.csv` の横にある日付付きバックアップファイルからコピペして復元してください。**
-- 以下のモデルを追加しました。
-	- `Download\ControlNet\Sdxl\AnyTest_Dim64_v10.bat`
-	- `Download\Stable-diffusion\NoobE\SmoothMixNoob_v30.bat`
-	- `Download\Stable-diffusion\Illu\SmoothMixIlluNoob_v30.bat`
-
-![](https://raw.githubusercontent.com/wiki/Zuntan03/EasyReforge/log/2507/anytest.webp)
-
-### 2025/06/15
-
-- モデルや LoRA のダウンロード bat の追加や更新をしました。
-	- `Download\Stable-diffusion\Illu\botan_v30.bat`
-	- `Download\Stable-diffusion\Illu\copycatIllu_v70.bat`
-	- `Download\Stable-diffusion\Illu\OneObsession_v14.bat`
-	- `Download\Stable-diffusion\NoobE\LuminarQMixE_v71.bat`
-	- `Download\Stable-diffusion\NoobV\LuminarQMixV_v71.bat`
-	- `Download\Stable-diffusion\RowWeiV\RouWeiV_v08.bat`
-	- `Download\Lora\Illu_Nsfw\OneFingerSelfieChallenge_Illu.bat`
-- アップスケーラのモデルを 4種追加しました。  
-`Download\All\ESRGAN.bat` ですべてダウンロードできます。
-	- `Download\ESRGAN\2x-AnimeSharpV4_RCAN.bat`
-	- `Download\ESRGAN\2x-AnimeSharpV4_Fast_RCAN_PU.bat`
-	- `Download\ESRGAN\4x-UltraSharpV2.bat`
-	- `Download\ESRGAN\4x-UltraSharpV2_Lite.bat`
-
-### 2025/06/09
-
-- ADetailer 用モデルの `Download\adetailer\segm\99coins_anime_girl_face_m_seg.bat` を追加しました。
-- `sageattention` のために `torch` のバージョンを `2.7.0` から `2.7.1` に上げました。
-
-### 2025/06/08
-
-- 以下の Illustrious 系モデルのダウンロードに対応しました。  
-`Download/Stable-diffusion/Illu/*.bat` でダウンロードできます。  
-`Download/All/Stable-diffusion_Illu.bat` でまとめてダウンロードできます。
-	- [`botan_v20.bat`](https://huggingface.co/KKTT8823/botan_illustrious)
-	- [`copycatIllu_v60.bat`](https://huggingface.co/calculater/copycat-illustrious)
-	- [`dupliCatFlat_v10.bat`](https://huggingface.co/calculater/dupli-cat_flat)
-	- [`illustrious_v20.bat`](https://huggingface.co/OnomaAIResearch/Illustrious-XL-v2.0)
-	- [`Quillworks_v15.bat`](https://huggingface.co/Shakker-Labs/Illustrious-Quillworks-V15)
-	- [`songMix_v34.bat`](https://huggingface.co/yyy1026/songMix)
-	- [`TanemoMix_v40.bat`](https://civitai.com/models/1297977?modelVersionId=1754256)
-	- [`WaiNsfw_v14.bat`](https://civitai.com/models/827184?modelVersionId=1761560)
-	- [`OneObsession_v13.bat`](https://civitai.com/models/1318945?modelVersionId=1840942)
-- 以下の NoobE 系モデルのダウンロードに対応しました。  
-	- [`Download\Stable-diffusion\NoobE\LuminarQMixE_v70.bat`](https://civitai.com/models/1616309?modelVersionId=1829221)
-	- [`Download\Stable-diffusion\NoobE_Real\Featureless25DMix_v20.bat`](https://civitai.com/models/1133674?modelVersionId=1795934)
-- 以下の NoobV 系モデルのダウンロードに対応しました。  
-`Download/Stable-diffusion/NoobV/*.bat` でダウンロードできます。
-	- [`CottonNoob_v40.bat`](https://civitai.com/models/1259226?modelVersionId=1830361)
-	- [`LuminarQMixV_v70.bat`](https://civitai.com/models/1616309?modelVersionId=1829237)
-- 以下の RouWeiE 系モデルのダウンロードに対応しました。  
-`Download/Stable-diffusion/RowWeiE/*.bat` でダウンロードできます。
-	- [`CalicoCatTower_v20.bat`](https://civitai.com/models/1294336?modelVersionId=1860525)
-	- [`RouWeiE_v08.bat`](https://civitai.com/models/950531?modelVersionId=1832460)
-- ADetailer モデルの [Anime NSFW Detection](https://civitai.com/models/1313556?modelVersionId=1863248) のダウンロードに対応しました。
-	- `Download\adetailer\segm\AnimeNsfw_v40.bat`
-- [`ReshapeBodyLeco`](https://huggingface.co/yyy1026/songMix/blob/main/ReshapedBody_LECO/ReadMe.txt) と [`AntiNoiseLeco`](https://huggingface.co/yyy1026/songMix/blob/main/AntiNoise_LECO/ReadMe.txt) のダウンロードに対応しました。
-	- `Download\Lora\Noob_Bundle\songMixLeco.bat`
-- 生成画像の最大サイズを `2048px` から `4096px` に増やしました。
-
-#### [過去の更新内容](https://github.com/Zuntan03/EasyReforge/wiki/%E9%81%8E%E5%8E%BB%E3%81%AE%E6%9B%B4%E6%96%B0%E5%86%85%E5%AE%B9)（参考画像もこちらにあります。）
+#### [EasyReforgeの更新内容](https://github.com/hirorohi03/EasyReforge/wiki/%E9%81%8E%E5%8E%BB%E3%81%AE%E6%9B%B4%E6%96%B0%E5%86%85%E5%AE%B9)（参考画像もこちらにあります。）
 
 ## ドキュメント
 
-- [トラブルシューティング](https://github.com/Zuntan03/EasyReforge/wiki/%E3%83%88%E3%83%A9%E3%83%96%E3%83%AB%E3%82%B7%E3%83%A5%E3%83%BC%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0)
-- [過去の更新内容](https://github.com/Zuntan03/EasyReforge/wiki/%E9%81%8E%E5%8E%BB%E3%81%AE%E6%9B%B4%E6%96%B0%E5%86%85%E5%AE%B9)
+- [トラブルシューティング](https://github.com/hirorohi03/EasyReforge/wiki/%E3%83%88%E3%83%A9%E3%83%96%E3%83%AB%E3%82%B7%E3%83%A5%E3%83%BC%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0)
+- [過去の更新内容](https://github.com/hirorohi03/EasyReforge/wiki/%E9%81%8E%E5%8E%BB%E3%81%AE%E6%9B%B4%E6%96%B0%E5%86%85%E5%AE%B9)
 
 ## ライセンス
 

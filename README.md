@@ -1,6 +1,6 @@
 ﻿# EasyReforge-Next
 
-This project is a fork of [EasyReforge](https://github.com/Zuntan03/EasyReforge).
+This project is a fork of [EasyReforge](https://github.com/Zuntan03/EasyReforge).<BR>
 本プロジェクトはZuntan03氏の[EasyReforge](https://github.com/Zuntan03/EasyReforge)をベースにしたforkです。
 
 ## オリジナルのEasyReforgeからの変更点
@@ -25,21 +25,23 @@ This project is a fork of [EasyReforge](https://github.com/Zuntan03/EasyReforge)
 
 ## インストール方法
 
-[EasyReforgeInstaller.bat](https://github.com/hirorohi03/EasyReforge/raw/main/EasyReforge/EasyReforgeInstaller.bat) を右クリックから保存し、C:/EasyReforge/ などの浅いパスのインストール先の空フォルダで、EasyReforgeInstaller.bat をダブルクリックして実行します。
+[EasyReforgeInstaller.bat](https://github.com/hirorohi03/EasyReforge/raw/main/EasyReforge/EasyReforgeInstaller.bat) を右クリックから保存します。以降は[オリジナルのEasyReforgeの手順](https://github.com/hirorohi03/EasyReforge?tab=readme-ov-file#%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E6%96%B9%E6%B3%95-1)と同じです。
 
 ## オリジナルのEasyReforgeからの移行
 
-現時点ではオリジナルのEasyReforgeからの移行はサポートしていません。ほとんどの資産はModelとOutputReforge以下に格納されているはずです。
-使い方次第ですが、本体や拡張機能の設定やスタイル、プリセット類は、再設定や再作成が必要になるかもしれません。
-今後[私のnote](https://note.com/hirorohi03)でWebUI間の移行に関する解説記事を記載する予定です。
+現時点ではオリジナルのEasyReforgeからの移行はサポートしていません。
+- ほとんどの資産はModelとOutputReforge以下に格納されているはずです。
+- 使い方次第ですが、本体や拡張機能の設定やスタイル、プリセット類は、再設定や再作成が必要になるかもしれません。
+
+今後、[私のnote](https://note.com/hirorohi03)でWebUI間の移行に関する解説記事を記載する予定です。
 
 ## 連絡
 
-このforkについてわからないことや不具合や要望がありましたら、 [@hirorohi03](https://x.com/hirorohi003) や [Issues](https://github.com/hirorohi03/EasyReforge/issues)  にお知らせください。
-Zuntan03氏や元のEasyReforgeへの問い合わせは絶対におやめください。
+このforkについてわからないことや不具合や要望がありましたら、 [@hirorohi03](https://x.com/hirorohi003) や [Issues](https://github.com/hirorohi03/EasyReforge/issues)  にお知らせください。<BR>
+Zuntan03氏やオリジナルのEasyReforgeへの問い合わせは絶対におやめください。
 
-以降は基本的にオリジナルのEasyReforgeのドキュメントの内容です。
-問題が起きそうなリンクのみ当リポジトリに変更してあります。
+以降は基本的にオリジナルのEasyReforgeのドキュメントの内容です。<BR>
+問題が起きそうなリンクのみ宛先を当リポジトリに変更してあります。
 
 ---
 # EasyReforge
@@ -151,12 +153,12 @@ E-Pred に戻すときも同様です。
 
 - **更新で編集したスタイルが巻き戻った場合は、`stable-diffusion-webui-reForge\sytles.csv` の横にある日付付きバックアップファイルからコピペして復元してください。**
 
-#### [EasyReforgeの更新内容](https://github.com/hirorohi03/EasyReforge/wiki/%E9%81%8E%E5%8E%BB%E3%81%AE%E6%9B%B4%E6%96%B0%E5%86%85%E5%AE%B9)（参考画像もこちらにあります。）
+#### [EasyReforgeの更新内容](https://github.com/hirorohi03/EasyReforge/wiki/EasyReforge%E3%81%AE%E6%9B%B4%E6%96%B0%E5%86%85%E5%AE%B9)（参考画像もこちらにあります。）
 
 ## ドキュメント
 
 - [トラブルシューティング](https://github.com/hirorohi03/EasyReforge/wiki/%E3%83%88%E3%83%A9%E3%83%96%E3%83%AB%E3%82%B7%E3%83%A5%E3%83%BC%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0)
-- [過去の更新内容](https://github.com/hirorohi03/EasyReforge/wiki/%E9%81%8E%E5%8E%BB%E3%81%AE%E6%9B%B4%E6%96%B0%E5%86%85%E5%AE%B9)
+- [EasyReforgeの更新内容](https://github.com/hirorohi03/EasyReforge/wiki/EasyReforge%E3%81%AE%E6%9B%B4%E6%96%B0%E5%86%85%E5%AE%B9)
 
 ## ライセンス
 

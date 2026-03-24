@@ -6,6 +6,7 @@ This project is a fork of [EasyReforge](https://github.com/Zuntan03/EasyReforge)
 ## オリジナルのEasyReforgeからの変更点
 
 基本的な仕様はEasyReforgeを受け継いでいますが以下の違いがあります。
+- 新規インストール後に起動しない問題への対策
 - Stable Diffusion WebUI reForge本体、および拡張機能 (Extensions) を最新にアップデート、バージョン固定なし
 - Potable Gitのバージョンを2.48.1から2.53.0.2にアップデート
 - Pyhton (venv) を3.10.6から3.10.11にアップデート
@@ -28,18 +29,27 @@ This project is a fork of [EasyReforge](https://github.com/Zuntan03/EasyReforge)
 
 [EasyReforgeInstaller.bat](https://github.com/hirorohi03/EasyReforge/raw/main/EasyReforge/EasyReforgeInstaller.bat) を右クリックから保存します。以降は[オリジナルのEasyReforgeの手順](https://github.com/hirorohi03/EasyReforge?tab=readme-ov-file#%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E6%96%B9%E6%B3%95-1)と同じです。
 
-## オリジナルのEasyReforgeからの移行
+## オリジナルのEasyReforgeからの移行について
 
 現時点ではオリジナルのEasyReforgeからの移行はサポートしていません。
-- ほとんどの資産はModelとOutputReforge以下に格納されているはずです。
+- ほとんどの資産はModelとOutputReforge以下に格納されており、単純にコピーすればよいです。
 - 使い方次第ですが、本体や拡張機能の設定やスタイル、プリセット類は、再設定や再作成が必要になるかもしれません。
 
 今後、[私のnote](https://note.com/hirorohi03)でWebUI間の移行に関する解説記事を記載する予定です。
 
+## 注意事項
+
+- テストが十分でないためオリジナルのEasyReforgeでは発生しない不具合が存在する可能性があります。
+- オリジナルのEasyReforgeと異なりreForge本体と拡張機能のバージョンを固定しませんので、それらのアップデートにより不具合が発生することがあります。
+
+## Todo
+
+不具合発生時のダウングレード方法、または手順。
+
 ## 連絡
 
-このforkについてわからないことや不具合や要望がありましたら、 [@hirorohi03](https://x.com/hirorohi003) や [Issues](https://github.com/hirorohi03/EasyReforge/issues)  にお知らせください。<BR>
-Zuntan03氏やオリジナルのEasyReforgeへの問い合わせは絶対におやめください。
+このforkについてわからないことや不具合や要望がありましたら、[@hirorohi03](https://x.com/hirorohi003) や [Issues](https://github.com/hirorohi03/EasyReforge/issues)  にお知らせください。<BR>
+オリジナルのEasyReforgeならびに開発者のZuntan03氏、またreForge本体ならびに開発者のPanchovix氏への問い合わせは絶対におやめください。
 
 以降は基本的にオリジナルのEasyReforgeのドキュメントの内容です。<BR>
 問題が起きそうなリンクのみ宛先を当リポジトリに変更してあります。

@@ -11,21 +11,8 @@ class ReforgeConfig:
         self.updaters = {
             "0.0.0": self.update_0_0_0,
             "0.1.0": self.update_0_1_0,
-            "0.1.1": self.update_0_1_1,
             "0.1.2": self.update_0_1_2,
-            "0.1.3": self.update_0_1_3,
             "0.1.4": self.update_0_1_4,
-            "0.1.5": self.update_0_1_5,
-            "0.1.6": self.update_0_1_6,
-            "0.1.7": self.update_0_1_7,
-            "0.1.8": self.update_0_1_8,
-            "0.1.9": self.update_0_1_9,
-            "0.2.0": self.update_0_2_0,
-            "0.2.1": self.update_0_2_1,
-            "0.2.2": self.update_0_2_2,
-            "0.2.3": self.update_0_2_3,
-            "0.2.4": self.update_0_2_4,
-            "0.2.5": self.update_0_2_5,
         }
         self.styles_csv_path = os.path.join(os.path.dirname(cfg_path), "styles.csv")
 
@@ -104,21 +91,10 @@ class ReforgeConfig:
 
         cfg["disable_weights_auto_swap"] = False
 
-    def update_0_1_1(self, cfg):
-        cfg["easy_reforge_config_version"] = "0.1.2"
-
-        self.backup_styles_csv()
-
     def update_0_1_2(self, cfg):
         cfg["easy_reforge_config_version"] = "0.1.3"
 
         cfg["bilingual_localization_file"] = "ja_JP"
-
-    def update_0_1_3(self, cfg):
-        cfg["easy_reforge_config_version"] = "0.1.4"
-
-        cfg["samples_format"] = "webp"
-        cfg["grid_format"] = "webp"
 
     def update_0_1_4(self, cfg):
         cfg["easy_reforge_config_version"] = "0.1.5"
@@ -127,61 +103,16 @@ class ReforgeConfig:
 
         self.backup_styles_csv()
 
-    def update_0_1_5(self, cfg):
-        cfg["easy_reforge_config_version"] = "0.1.6"
-
-        self.backup_styles_csv()
-
-    def update_0_1_6(self, cfg):
-        cfg["easy_reforge_config_version"] = "0.1.7"
-
-        self.backup_styles_csv()
-
-    def update_0_1_7(self, cfg):
-        cfg["easy_reforge_config_version"] = "0.1.8"
-
-        self.backup_styles_csv()
-
-    def update_0_1_8(self, cfg):
-        cfg["easy_reforge_config_version"] = "0.1.9"
-
-        self.backup_styles_csv()
-
-    def update_0_1_9(self, cfg):
-        cfg["easy_reforge_config_version"] = "0.2.0"
-
-        self.backup_styles_csv()
-
-    def update_0_2_0(self, cfg):
-        cfg["easy_reforge_config_version"] = "0.2.1"
-
-        self.backup_styles_csv()
-
-    def update_0_2_1(self, cfg):
-        cfg["easy_reforge_config_version"] = "0.2.2"
-
-        cfg["samples_format"] = "png"
-        cfg["grid_format"] = "png"
-
-    def update_0_2_2(self, cfg):
-        cfg["easy_reforge_config_version"] = "0.2.3"
-
-        self.backup_styles_csv()
-
-    def update_0_2_3(self, cfg):
-        cfg["easy_reforge_config_version"] = "0.2.4"
-
-        cfg["stealth_pnginfo_opt"] = "None"
-
-    def update_0_2_4(self, cfg):
-        cfg["easy_reforge_config_version"] = "0.2.5"
-
-        cfg["stealth_pnginfo_option"] = "None"
-
-    def update_0_2_5(self, cfg):
-        cfg["easy_reforge_config_version"] = "0.2.6"
-
-        self.backup_styles_csv()
+#    def update_0_2_3(self, cfg):
+#        cfg["easy_reforge_config_version"] = "0.2.4"
+#
+#        cfg["stealth_pnginfo_opt"] = "None"
+#
+#    def update_0_2_4(self, cfg):
+#        cfg["easy_reforge_config_version"] = "0.2.5"
+#
+#        cfg["stealth_pnginfo_option"] = "None"
+#
 
 
 if __name__ == "__main__":

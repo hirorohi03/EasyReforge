@@ -58,7 +58,7 @@ class ReforgeUiConfig:
         # cfg["txt2img/Styles/value"] = ["🌟quality", "🚀dmd2XL4", "💬safe"]
 
         cfg["txt2img/Batch count/maximum"] = 999
-        cfg["txt2img/Batch size/maximum"] = 16
+        # cfg["txt2img/Batch size/maximum"] = 16
 
         cfg["txt2img/Hires. fix/value"] = True
         cfg["txt2img/Upscaler/value"] = "Latent (nearest-exact)"
@@ -98,7 +98,7 @@ class ReforgeUiConfig:
         cfg["easy_reforge_ui-config_version"] = "0.1.1"
 
         # cfg["customscript/tipo.py/txt2img/Use CPU (GGUF)/value"] = False
-        cfg["customscript/dynamic_prompting.py/txt2img/Fixed seed/value"] = False
+        # cfg["customscript/dynamic_prompting.py/txt2img/Fixed seed/value"] = False
 
         cfg["txt2img/Prompt/value"] = (
             "1girl, rem \\(re:zero\\), re:zero kara hajimeru isekai seikatsu,\nofficial style,\nsanta costume, indoors,\n<lora:NoobV065sHyperDmd:1> masterpiece, best quality, very aesthetic, absurdres, newest, safe\n# 起動時の設定を変更したい場合は、設定を変更して Settings - Defaults の Apply"

@@ -6,12 +6,7 @@ set GITHUB_CLONE_OR_PULL=%EASY_TOOLS%\Git\GitHub_CloneOrPull.bat
 
 pushd %~dp0..\..
 
-@REM echo https://github.com/Panchovix/stable-diffusion-webui-reForge
-@REM ERROR:root:ERROR lora diffusion_model.output_blocks.1.1.transformer_blocks.2.ff.net.0.proj.weight Allocation on device
-@REM torch.cuda.OutOfMemoryError: Allocation on device
-@REM TypeError: 'NoneType' object is not iterable
-@REM 3/9 19395bf96ccdc605774c76a9fe8cc7145b637128 Inpaint OK, HiresModel: NG
-call %GITHUB_CLONE_OR_PULL% Panchovix stable-diffusion-webui-reForge main 19395bf96ccdc605774c76a9fe8cc7145b637128
+call %GITHUB_CLONE_OR_PULL% Panchovix stable-diffusion-webui-reForge
 if %ERRORLEVEL% neq 0 ( popd & exit /b 1 )
 
 popd
@@ -26,13 +21,12 @@ if %ERRORLEVEL% neq 0 ( pause & popd & exit /b 1 )
 
 @REM https://github.com/woct0rdho/SageAttention/releases
 @REM https://github.com/woct0rdho/triton-windows/releases
-@REM pip install --pre -U torch torchvision --index-url https://download.pytorch.org/whl/nightly/cu128
-echo pip install -qq torch==2.7.1+cu128 torchaudio==2.7.1+cu128 torchvision==0.22.1+cu128 --index-url https://download.pytorch.org/whl/cu128
-pip install -qq torch==2.7.1+cu128 torchaudio==2.7.1+cu128 torchvision==0.22.1+cu128 --index-url https://download.pytorch.org/whl/cu128
+echo pip install -qq torch==2.9.1 torchvision --index-url https://download.pytorch.org/whl/cu128
+pip install -qq torch==2.9.1 torchvision --index-url https://download.pytorch.org/whl/cu128
 if %ERRORLEVEL% neq 0 ( pause & popd & exit /b 1 )
 
-echo pip install -qq triton-windows==3.3.1.post19
-pip install -qq triton-windows==3.3.1.post19
+echo pip install -qq triton-windows==3.5.1.post24
+pip install -qq triton-windows==3.5.1.post24
 if %ERRORLEVEL% neq 0 ( pause & popd & exit /b 1 )
 
 set "TRITON_CACHE=C:\Users\%USERNAME%\.triton\cache"
@@ -51,25 +45,25 @@ rmdir /S /Q "%TORCH_INDUCTOR_TEMP%"
 :EASY_TORCH_INDUCTOR_TEMP_NOT_FOUND
 
 @REM https://github.com/woct0rdho/SageAttention/releases/download/v2.1.1-windows/sageattention-2.1.1+cu128torch2.7.1-cp310-cp310-win_amd64.whl
-echo pip install -qq https://github.com/woct0rdho/SageAttention/releases/download/v2.2.0-windows.post2/sageattention-2.2.0+cu128torch2.7.1.post2-cp39-abi3-win_amd64.whl
-pip install -qq https://github.com/woct0rdho/SageAttention/releases/download/v2.2.0-windows.post2/sageattention-2.2.0+cu128torch2.7.1.post2-cp39-abi3-win_amd64.whl
+echo pip install -qq https://github.com/woct0rdho/SageAttention/releases/download/v2.2.0-windows.post4/sageattention-2.2.0+cu128torch2.9.0andhigher.post4-cp39-abi3-win_amd64.whl
+pip install -qq https://github.com/woct0rdho/SageAttention/releases/download/v2.2.0-windows.post4/sageattention-2.2.0+cu128torch2.9.0andhigher.post4-cp39-abi3-win_amd64.whl
 if %ERRORLEVEL% neq 0 ( pause & popd & exit /b 1 )
 
-set LLAMA_CPP_WHL=llama_cpp_python-0.3.4-cp310-cp310-win_amd64.whl
-if exist %LLAMA_CPP_WHL% ( goto :LLAMA_CPP_INSTALLED )
+@REM set LLAMA_CPP_WHL=llama_cpp_python-0.3.4-cp310-cp310-win_amd64.whl
+@REM if exist %LLAMA_CPP_WHL% ( goto :LLAMA_CPP_INSTALLED )
 
-echo %CURL_CMD% -O https://github.com/abetlen/llama-cpp-python/releases/download/v0.3.4-cu124/%LLAMA_CPP_WHL%
-%CURL_CMD% -O https://github.com/abetlen/llama-cpp-python/releases/download/v0.3.4-cu124/%LLAMA_CPP_WHL%
-if %ERRORLEVEL% neq 0 ( pause & popd & exit /b 1 )
+@REM echo %CURL_CMD% -O https://github.com/abetlen/llama-cpp-python/releases/download/v0.3.4-cu124/%LLAMA_CPP_WHL%
+@REM %CURL_CMD% -O https://github.com/abetlen/llama-cpp-python/releases/download/v0.3.4-cu124/%LLAMA_CPP_WHL%
+@REM if %ERRORLEVEL% neq 0 ( pause & popd & exit /b 1 )
 
-echo pip install -qq %LLAMA_CPP_WHL%
-pip install -qq %LLAMA_CPP_WHL%
-if %ERRORLEVEL% neq 0 ( pause & popd & exit /b 1 )
+@REM echo pip install -qq %LLAMA_CPP_WHL%
+@REM pip install -qq %LLAMA_CPP_WHL%
+@REM if %ERRORLEVEL% neq 0 ( pause & popd & exit /b 1 )
 
-:LLAMA_CPP_INSTALLED
+@REM :LLAMA_CPP_INSTALLED
 
-echo pip install -qq -r %~dp0src\requirements.txt
-pip install -qq -r %~dp0src\requirements.txt
+echo pip install -qq -r .\requirements_versions.txt
+pip install -qq -r .\requirements_versions.txt
 if %ERRORLEVEL% neq 0 ( pause & popd & exit /b 1 )
 
 echo xcopy /SQY %~dp0src\stable-diffusion-webui-reForge\*.* .\

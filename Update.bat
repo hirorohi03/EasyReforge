@@ -6,7 +6,7 @@ if %ERRORLEVEL% neq 0 ( exit /b 1 )
 
 pushd %~dp0EasyTools
 echo.
-echo https://github.com/Zuntan03/EasyTools
+echo https://github.com/hirorohi03/EasyTools
 echo git -C EasyTools fetch origin
 git fetch origin
 echo git -C EasyTools reset --hard origin/main
@@ -16,7 +16,7 @@ popd
 
 pushd %~dp0
 echo.
-echo https://github.com/Zuntan03/EasyReforge
+echo https://github.com/hirorohi03/EasyReforge
 echo git -C EasyReforge fetch origin
 git fetch origin
 echo git -C EasyReforge reset --hard origin/main

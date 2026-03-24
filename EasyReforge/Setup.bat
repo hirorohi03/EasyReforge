@@ -17,16 +17,6 @@ echo %CURL_CMD% -o %~dp0vc_redist.x64.exe https://aka.ms/vs/17/release/vc_redist
 if %ERRORLEVEL% neq 0 ( pause & exit /b 1 )
 :EXIST_VC_REDIST_X64
 
-@REM if not exist %~dp0..\stable-diffusion-webui\ ( goto :SKIP_A1111_UPDATE )
-@REM call %~dp0SetupA1111.bat
-@REM if %ERRORLEVEL% neq 0 ( exit /b 1 )
-@REM :SKIP_A1111_UPDATE
-
-if not exist %~dp0..\stable-diffusion-webui-forge\ ( goto :SKIP_FORGE_UPDATE )
-call %~dp0SetupForge.bat
-if %ERRORLEVEL% neq 0 ( exit /b 1 )
-:SKIP_FORGE_UPDATE
-
 if exist %~dp0Reforge\Update_DisableMinimumDownload.txt ( exit /b 0 )
 
 if exist %~dp0..\Model\Stable-diffusion\NoobE\ (

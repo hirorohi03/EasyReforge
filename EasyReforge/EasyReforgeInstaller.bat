@@ -5,13 +5,13 @@ set "PROJECT_NAME=EasyReforge"
 set "PROJECT_SETUP_BAT=%~dp0%PROJECT_NAME%\Setup.bat"
 set "PROJECT_MODEL_DOWNLOAD_BAT=%~dp0Download\NoobAiEpsilonPred_Minimum.bat"
 
-set PROJECT_URL=https://github.com/Zuntan03/%PROJECT_NAME%
+set PROJECT_URL=https://github.com/hirorohi03/%PROJECT_NAME%
 set PROJECT_BRANCH=main
 set "PROJECT_DIR=%~dp0."
 set "EASY_TOOLS_DIR=%~dp0EasyTools"
 
 set "EASY_GIT_DIR=%EASY_TOOLS_DIR%\Git"
-set EASY_TOOLS_URL=https://github.com/Zuntan03/EasyTools
+set EASY_TOOLS_URL=https://github.com/hirorohi03/EasyTools
 set EASY_TOOLS_BRANCH=main
 
 if not exist "C:\Windows\System32\where.exe" (
@@ -67,7 +67,7 @@ if %ERRORLEVEL% equ 0 ( goto :EASY_GIT_FOUND )
 cd > NUL
 
 set PORTABLE_GIT_BIN=%EASY_GIT_DIR%\env\PortableGit\bin
-set PORTABLE_GIT_VERSION=2.48.1
+set PORTABLE_GIT_VERSION=2.53.0.2
 
 if not exist %PORTABLE_GIT_BIN%\ (
 	setlocal enabledelayedexpansion

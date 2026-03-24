@@ -2,12 +2,16 @@
 
 This project is a fork of [EasyReforge](https://github.com/Zuntan03/EasyReforge).
 本プロジェクトはZuntan03氏の[EasyReforge](https://github.com/Zuntan03/EasyReforge)をベースにしたforkです。
+
+## オリジナルのEasyReforgeからの変更点
+
 基本的な仕様はEasyReforgeを受け継いでいますが以下の違いがあります。
 - Stable Diffusion WebUI reForge本体、および拡張機能 (Extensions) を最新にアップデート、バージョン固定なし
+- Potable Gitのバージョンを2.48.1から2.53.0.2にアップデート
 - Pyhton (venv) を3.10.6から3.10.11にアップデート
 - PyTorchを2.7.1から2.9.1にアップデート, Triton, Sageattentionもそれに対応するものにアップデート
 - 拡張機能stable-diffusion-webui-wd14-taggerをBocchi-Chan2023版から67372a版に変更
-- 拡張機能の追加
+- 拡張機能を追加
 	- sd-webui-prompt-all-in-one
 	- model-keyword
 	- sd-webui-cutoff
@@ -16,11 +20,26 @@ This project is a fork of [EasyReforge](https://github.com/Zuntan03/EasyReforge)
     - inpaint_only_noobai_xl+lama
 	- inpaint_only_noobai_xl
 - ローカル LLM チャット (llama.cpp) の削除
+- A1111, Forge等の不要と思われる機能やファイルの削除
+- 標準バッチの起動オプション変更（`--cuda-malloc --cuda-stream --skip-torch-cuda-test --use-sage-attention`）
+
+## インストール方法
+
+[EasyReforgeInstaller.bat](https://github.com/hirorohi03/EasyReforge/raw/main/EasyReforge/EasyReforgeInstaller.bat) を右クリックから保存し、C:/EasyReforge/ などの浅いパスのインストール先の空フォルダで、EasyReforgeInstaller.bat をダブルクリックして実行します。
+
+## オリジナルのEasyReforgeからの移行
+
+現時点ではオリジナルのEasyReforgeからの移行はサポートしていません。ほとんどの資産はModelとOutputReforge以下に格納されているはずです。
+使い方次第ですが、本体や拡張機能の設定やスタイル、プリセット類は、再設定や再作成が必要になるかもしれません。
+今後[私のnote](https://note.com/hirorohi03)でWebUI間の移行に関する解説記事を記載する予定です。
+
+## 連絡
 
 このforkについてわからないことや不具合や要望がありましたら、 [@hirorohi03](https://x.com/hirorohi003) や [Issues](https://github.com/hirorohi03/EasyReforge/issues)  にお知らせください。
 Zuntan03氏や元のEasyReforgeへの問い合わせは絶対におやめください。
 
-以降は基本的に元のEasyReforgeのドキュメントの内容です。
+以降は基本的にオリジナルのEasyReforgeのドキュメントの内容です。
+問題が起きそうなリンクのみ当リポジトリに変更してあります。
 
 ---
 # EasyReforge

@@ -25,13 +25,13 @@ This project is a fork of [EasyReforge](https://github.com/Zuntan03/EasyReforge)
 
 ## インストール方法
 
-[EasyReforgeInstaller.bat](https://github.com/hirorohi03/EasyReforge/raw/main/EasyReforge/EasyReforgeInstaller.bat) を右クリックから保存し、C:/EasyReforge/ などの浅いパスのインストール先の空フォルダで、EasyReforgeInstaller.bat をダブルクリックして実行します。
+[EasyReforgeInstaller.bat](https://github.com/hirorohi03/EasyReforge/raw/main/EasyReforge/EasyReforgeInstaller.bat) を右クリックから保存します。以降は[オリジナルのEasyReforgeの手順](https://github.com/hirorohi03/EasyReforge?tab=readme-ov-file#%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E6%96%B9%E6%B3%95-1)と同じです。
 
 ## オリジナルのEasyReforgeからの移行
 
-現時点ではオリジナルのEasyReforgeからの移行はサポートしていません。ほとんどの資産はModelとOutputReforge以下に格納されているはずです。
+現時点ではオリジナルのEasyReforgeからの移行はサポートしていませんが、ほとんどの資産はModelとOutputReforge以下に格納されているはずです。
 使い方次第ですが、本体や拡張機能の設定やスタイル、プリセット類は、再設定や再作成が必要になるかもしれません。
-今後[私のnote](https://note.com/hirorohi03)でWebUI間の移行に関する解説記事を記載する予定です。
+今後、[私のnote](https://note.com/hirorohi03)でWebUI間の移行に関する解説記事を記載する予定です。
 
 ## 連絡
 
@@ -39,7 +39,7 @@ This project is a fork of [EasyReforge](https://github.com/Zuntan03/EasyReforge)
 Zuntan03氏や元のEasyReforgeへの問い合わせは絶対におやめください。
 
 以降は基本的にオリジナルのEasyReforgeのドキュメントの内容です。
-問題が起きそうなリンクのみ当リポジトリに変更してあります。
+問題が起きそうなリンクのみ宛先を当リポジトリに変更してあります。
 
 ---
 # EasyReforge

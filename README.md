@@ -3,12 +3,16 @@
 This project is a fork of [EasyReforge](https://github.com/Zuntan03/EasyReforge).<BR>
 本プロジェクトはZuntan03氏の[EasyReforge](https://github.com/Zuntan03/EasyReforge)をベースにしたforkです。
 
+解説記事<BR>
+[EasyReforge-Nextを公開しました（EasyReforgeのfork）](https://note.com/hirorohi03/n/nb8d3a31b3548)
+
 ## オリジナルのEasyReforgeからの変更点
 
-基本的な仕様はEasyReforgeを受け継いでいますが以下の違いがあります。
+基本的な仕様はEasyReforgeを受け継いでいますが、**reForge本体と拡張機能のバージョンを指定、固定しない**ことが最大の違いです。<BR>
+以下に違いを箇条書きします。
 - 新規インストール後に起動しない問題への対策
-- Stable Diffusion WebUI reForge本体、および拡張機能 (Extensions) を最新にアップデート、バージョン固定なし
-- Potable Gitのバージョンを2.48.1から2.53.0.2にアップデート
+- eForge本体と拡張機能を最新にアップデート、バージョン固定なし
+- Potable Gitを2.48.1から2.53.0.2にアップデート
 - Pyhton (venv) を3.10.6から3.10.11にアップデート
 - PyTorchを2.7.1から2.9.1にアップデート, Triton, Sageattentionもそれに対応するものにアップデート
 - 拡張機能stable-diffusion-webui-wd14-taggerをBocchi-Chan2023版から67372a版に変更
@@ -17,7 +21,7 @@ This project is a fork of [EasyReforge](https://github.com/Zuntan03/EasyReforge)
 	- model-keyword
 	- sd-webui-cutoff
 	- sd-webui-enable-checker
-- [Spectrum](https://github.com/hanjq17/Spectrum)の[Stable Diffusion WebUI Forge - Neo](https://github.com/Haoming02/sd-webui-forge-classic)での実装であるSpectrum Integrated (sd_forge_spectrum) を追加（reForge本体に実装されるまでの一時的な措置）
+- [Spectrum](https://github.com/hanjq17/Spectrum)の[Stable Diffusion WebUI Forge - Neo](https://github.com/Haoming02/sd-webui-forge-classic)での実装であるSpectrum Integrated (sd_forge_spectrum) を追加（reForge本体に実装されるまでの暫定措置）
 - 標準バッチの起動オプション変更（`--cuda-malloc --cuda-stream --skip-torch-cuda-test --use-sage-attention`）
 - reForge本体のソースコードパッチによるControlNet Preprocessorの削除
     - inpaint_only_noobai_xl+lama
@@ -31,7 +35,7 @@ This project is a fork of [EasyReforge](https://github.com/Zuntan03/EasyReforge)
 
 ## オリジナルのEasyReforgeからのアップデートや移行について
 
-現時点ではオリジナルのEasyReforgeからのアップデートや移行はサポートしていません。今後、何らかの機能として実装するかも未定です。
+現時点ではオリジナルのEasyReforgeからのアップデートや移行はサポートしていません。
 - ほとんどの資産はModelとOutputReforge以下に格納されており、単純にコピーすればよいです。
 - 使い方次第ですが、本体や拡張機能の設定やスタイル、プリセット類は、再設定や再作成が必要になるかもしれません。
 
@@ -52,7 +56,7 @@ This project is a fork of [EasyReforge](https://github.com/Zuntan03/EasyReforge)
 オリジナルのEasyReforgeならびに開発者のZuntan03氏、またreForge本体ならびに開発者のPanchovix氏への問い合わせは絶対におやめください。
 
 以降は基本的にオリジナルのEasyReforgeのドキュメントの内容です。<BR>
-問題が起きそうなリンクのみ宛先を当リポジトリに変更してあります。
+インストールバッチなど混同が起きそうなリンクのみ宛先を当リポジトリに変更してあります。
 
 ---
 # EasyReforge

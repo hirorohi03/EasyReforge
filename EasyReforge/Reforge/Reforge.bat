@@ -4,9 +4,16 @@ set CURL_CMD=C:\Windows\System32\curl.exe -kL
 set EASY_TOOLS=%~dp0..\..\EasyTools
 set GITHUB_CLONE_OR_PULL=%EASY_TOOLS%\Git\GitHub_CloneOrPull.bat
 
+set REFORGE_VERSION=
+if not exist "%~dp0..\Reforge_Version.txt" ( goto :SKIP_REFORGE_VERSION_CONTROL )
+set /p REFORGE_VERSION=<"%~dp0..\Reforge_Version.txt"
+)
+:SKIP_REFORGE_VERSION_CONTROL
+
 pushd %~dp0..\..
 
-call %GITHUB_CLONE_OR_PULL% Panchovix stable-diffusion-webui-reForge
+@REM https://github.com/Panchovix/stable-diffusion-webui-reForge
+call %GITHUB_CLONE_OR_PULL% Panchovix stable-diffusion-webui-reForge main %REFORGE_VERSION%
 if %ERRORLEVEL% neq 0 ( popd & exit /b 1 )
 
 popd

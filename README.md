@@ -16,15 +16,17 @@ This project is a fork of [EasyReforge](https://github.com/Zuntan03/EasyReforge)
 - Potable Gitを2.48.1から2.53.0.2にアップデート
 - Pyhton (venv) を3.10.6から3.10.11にアップデート
 - PyTorchを2.7.1から2.9.1にアップデート, Triton, Sageattentionもそれに対応するものにアップデート
-- 拡張機能stable-diffusion-webui-wd14-taggerをBocchi-Chan2023版から67372a版に変更
+- 拡張機能stable-diffusion-webui-wd14-taggerをBocchi-Chan2023版から~~67372a版~~[hirorohi03版](https://github.com/hirorohi03/stable-diffusion-webui-wd14-tagger)に変更
 - 拡張機能を追加
 	- [sd-webui-prompt-all-in-one](https://github.com/Physton/sd-webui-prompt-all-in-one)
 	- [model-keyword](https://github.com/mix1009/model-keyword)
 	- [sd-webui-cutoff](https://github.com/hnmr293/sd-webui-cutoff)
 	- [sd-webui-enable-checker](https://github.com/shirayu/sd-webui-enable-checker)
  	- [sd-webui-forge-spectrum](https://github.com/hirorohi03/sd-webui-forge-spectrum)
-- ~~SpectrumのStable Diffusion WebUI Forge Neoでの実装であるSpectrum Integrated (sd_forge_spectrum) を追加（reForge本体に実装されるまでの暫定措置）~~ **→ [sd-webui-forge-spectrum](https://github.com/hirorohi03/sd-webui-forge-spectrum)を使用してください**
-- ~~標準バッチの起動オプション変更（`--cuda-malloc --cuda-stream --skip-torch-cuda-test --use-sage-attention`）~~ **→ 環境によっては黒画像が生成されてしまうという報告があったためオプションは削除しました**
+- ~~SpectrumのStable Diffusion WebUI Forge Neoでの実装であるSpectrum Integrated (sd_forge_spectrum) を追加（reForge本体に実装されるまでの暫定措置）~~<BR>
+**→ Sepectrumを使用する場合は[sd-webui-forge-spectrum](https://github.com/hirorohi03/sd-webui-forge-spectrum)を使用してください**
+- ~~標準バッチの起動オプション変更（`--cuda-malloc --cuda-stream --skip-torch-cuda-test --use-sage-attention`）~~<BR>
+**→ 環境によっては黒画像が生成されてしまうという報告があったためオプションなしに戻しました**
 - reForge本体のソースコードパッチによるControlNet Preprocessorの削除
     - inpaint_only_noobai_xl+lama
 	- inpaint_only_noobai_xl
@@ -52,23 +54,22 @@ EasyReforge-Next インストール先にある以下いずれかのバッチを
 
 - `Update.bat` で EasyReforge-Next を更新します。
 	- 更新で問題が発生したら『[更新のトラブルシューティング](https://github.com/hirorohi03/EasyReforge/wiki/%E3%83%88%E3%83%A9%E3%83%96%E3%83%AB%E3%82%B7%E3%83%A5%E3%83%BC%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0#%E6%9B%B4%E6%96%B0%E3%81%AE%E3%83%88%E3%83%A9%E3%83%96%E3%83%AB%E3%82%B7%E3%83%A5%E3%83%BC%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0)』へ。
-- `Update.bat` 実行時、赤い文字で以下のエラーメッセージが出力されますがとりあえず無視してください。途中で止まってしまった場合は `Update.bat` を再実行すると問題なく最後まで実行できると思います。<p>
+- `Update.bat` 実行時、赤い文字で以下のエラーメッセージが出力された場合はとりあえず無視してください。途中で止まってしまった場合は `Update.bat` を再実行すると問題なく最後まで実行できると思います。<p>
 `ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.`<br>
 `tensorflow 2.21.0 requires protobuf<8.0.0,>=6.31.1, but you have protobuf 3.20.0 which is incompatible.`<p>
-	- `protobuf` というライブラリについて、WD14-Taggerが前提とするバージョンよりもreForgeの前提が低いことが原因です。本家reForgeでも抱えている問題ですが、WD14-Taggerの動作には問題ないはずです。<br>
-EasyReforgeではreForgeのファイルを差し替えて `protobuf` のバージョンを上げることで対策していましたが、EasyReforge-Nextの対策方法は検討中です。
+	- この問題は[2026/4/6の更新](https://github.com/hirorohi03/EasyReforge?tab=readme-ov-file#202646)で修正されているはずですので、そちらを参照して対策してください。
 
 ## reForge本体のバージョン指定方法
 
 2つのバッチでreForge本体のバージョンを指定／解除することができます。<BR>
 reForge本体はリリースやバージョンタグを付けていないため、Gitの**コミットハッシュ値**で指定します。
 - `EasyReforge\ReforgeVersionControl-Enable.bat`<BR>
-reForge本体のコミットハッシュ値を入力して指定（入力内容の`EasyReforge\Reforge_Version.txt`を生成）
+reForge本体のコミットハッシュ値を入力して指定（入力内容の`EasyReforge\Reforge_Version.txt`が生成される）
 - `EasyReforge\ReforgeVersionControl-Disable.bat`<BR>
-reForge本体のバージョン指定を解除（`EasyReforge\Reforge_Version.txt`を削除）
+reForge本体のバージョン指定を解除（`EasyReforge\Reforge_Version.txt`が削除される）
 
 バージョンを変更する場合は `Update.bat` を実行してください。<BR>
-reForge本体の**コミットハッシュ値**は、下図を参考にして[reForge本体のコミットログ](https://github.com/Panchovix/stable-diffusion-webui-reForge/commits/main/)からコピー＆ペーストしてください。
+reForge本体の**コミットハッシュ値**は、下図を参考にして[reForge本体のコミットログ](https://github.com/Panchovix/stable-diffusion-webui-reForge/commits/main/)からコピー＆ペーストしてください。<P>
 ![CommitHash](/Sample/Images_README/commit_hash.png) 
 
 ## オリジナルのEasyReforgeからのアップデートや移行について
@@ -93,13 +94,26 @@ reForge本体の**コミットハッシュ値**は、下図を参考にして[re
 
 - **更新で編集したスタイルが巻き戻った場合は、`stable-diffusion-webui-reForge\sytles.csv` の横にある日付付きバックアップファイルからコピペして復元してください。**
 
+### 2026/4/6
+
+- 既存の `wd14-tagger` は、`protobuf` というPythonライブラリに対するバージョン要求がreForgeの要求と不整合になっており、`Update.bat` 実行時などにエラーメッセージが出力されていたため、hirorohi03が修正した [`wd14-tagger`](https://github.com/hirorohi03/stable-diffusion-webui-wd14-tagger)に変更しました。
+	- 既に不整合になっているPythonライブラリは自動で回復しませんので、[更新のトラブルシューティング](https://github.com/hirorohi03/EasyReforge/wiki/%E3%83%88%E3%83%A9%E3%83%96%E3%83%AB%E3%82%B7%E3%83%A5%E3%83%BC%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0#%E6%9B%B4%E6%96%B0%E3%81%AE%E3%83%88%E3%83%A9%E3%83%96%E3%83%AB%E3%82%B7%E3%83%A5%E3%83%BC%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0)に記載のとおり、`venv` を削除＆再作成してください。
+	- venvは7GB以上のサイズがあるため削除＆再作成には相応の時間を要します。削除＆再作成ではなく個別に不要なPythonライブラリを削除して修正する場合は`Reforge_Activate.bat`を実行して開くコマンドプロンプトで以下のコマンドを実行してください。
+```
+pip uninstall deepdanbooru
+pip uninstall tensorflow
+pip uninstall opencv_python_headless
+```
+
 ### 2026/4/5
 
 - 不具合が発生した場合などのために、`EasyReforge\ReforgeVersionControl-Enable.bat` と `EasyReforge\ReforgeVersionControl-Disable.bat` でreForgeのバージョン指定と解除、`Update.bat`で指定したバージョンに変更できるようにしました。
 
 ### 2026/4/3
 
-- [Stable Diffusion WebUI Forge - Neo](https://github.com/Haoming02/sd-webui-forge-classic)からのSpectrum Integrated (sd_forge_spectrum)の流用をやめ、拡張機能の[sd-webui-forge-spectrum](https://github.com/hirorohi03/sd-webui-forge-spectrum)を追加しました。既にインストール済みのSpectrum Integratedは自動で削除されませんので、不要な場合はユーザー自身でエクスプローラー等を使ってstable-diffusion-webui-reForge\extensions-builtin\sd_forge_spectrumをフォルダごと削除してください。
+- [Stable Diffusion WebUI Forge - Neo](https://github.com/Haoming02/sd-webui-forge-classic)からのSpectrum Integrated ((sd_forge_spectrum)[https://github.com/Haoming02/sd-webui-forge-classic/tree/ae4e34e2fcf38eb64f77892bdc941b2444e5eaf3/extensions-builtin/sd_forge_spectrum])の流用をやめ、拡張機能の[sd-webui-forge-spectrum](https://github.com/hirorohi03/sd-webui-forge-spectrum)を追加しました。
+	- 既にインストール済みのSpectrum Integratedは自動で削除されませんので、不要な場合はユーザー自身でエクスプローラー等を使ってstable-diffusion-webui-reForge\extensions-builtin\sd_forge_spectrumをフォルダごと削除してください。
+	- [sd-webui-forge-spectrum](https://github.com/hirorohi03/sd-webui-forge-spectrum)は品質が低いという報告もありますので、気になる場合はSpectrum Integratedを残しておくか、既にSpectrum Integratedを削除してしまった場合は(sd-webui-reforge-spectrum)[https://github.com/wai55555/sd-webui-reforge-spectrum]を試してみてください。
 
 ### 2026/3/26
 

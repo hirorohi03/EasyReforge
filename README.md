@@ -98,7 +98,7 @@ reForge本体の**コミットハッシュ値**は、下図を参考にして[re
 
 - 既存の `wd14-tagger` は、`protobuf` というPythonライブラリに対するバージョン要求がreForgeの要求と不整合になっており、`Update.bat` 実行時などにエラーメッセージが出力されていたため、hirorohi03が修正した [`wd14-tagger`](https://github.com/hirorohi03/stable-diffusion-webui-wd14-tagger)に変更しました。
 	- 既に不整合になっているPythonライブラリは自動で回復しませんので、[更新のトラブルシューティング](https://github.com/hirorohi03/EasyReforge/wiki/%E3%83%88%E3%83%A9%E3%83%96%E3%83%AB%E3%82%B7%E3%83%A5%E3%83%BC%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0#%E6%9B%B4%E6%96%B0%E3%81%AE%E3%83%88%E3%83%A9%E3%83%96%E3%83%AB%E3%82%B7%E3%83%A5%E3%83%BC%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0)に記載のとおり、`venv` を削除＆再作成してください。
-	- `venv` は7GB以上のサイズがあるため削除＆再作成には相応の時間を要します。削除＆再作成ではなく個別に不要なPythonライブラリを削除して修正する場合は`Reforge_Activate.bat`を実行して開くコマンドプロンプトで以下のコマンドを実行した後に 'Update.bat' を実行してください。
+	- `venv` は7GB以上のサイズがあるため削除＆再作成には相応の時間を要します。削除＆再作成ではなく個別に不要なPythonライブラリを削除して修正する場合は`Reforge_Activate.bat`を実行して開くコマンドプロンプトで以下のコマンドを実行した後に `Update.bat` を実行してください。
 ```
 pip uninstall deepdanbooru
 pip uninstall tensorflow

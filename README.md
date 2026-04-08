@@ -48,7 +48,7 @@ EasyReforge-Next インストール先にある以下いずれかのバッチを
 - `Reforge.bat`：起動オプションなしの標準設定で起動します。
 - `Reforge_Fast.bat`：sageattention等を有効にして起動します。画像生成時間が約10%削減します。ただし環境によっては黒画像しか生成されなくなる場合がありますので、その場合は `Reforge.bat` を使用してください。
 - 自作バッチ：自分で自由に起動オプションを指定したい場合は、`Reforge_Fast.bat` を任意のファイル名でコピーして、ファイルの内容を書き換えて利用してください。コピーせずに既存のファイルの内容を書き換えて利用すると、EasyReforge-Next の更新時に巻き戻ってしまいます。<br>
-	- 参考ですが、--allow-fp16-accumulation オプションで計算精度を低くして生成時間を約10%削減することも可能です（sageattentionとの合計て約20%削減）。
+	- 参考ですが、`--allow-fp16-accumulation` オプションで計算精度を低くして生成時間を約10%削減することも可能です（sageattentionとの合計て約20%削減）。
 
 ## 更新方法
 
@@ -98,7 +98,7 @@ reForge本体の**コミットハッシュ値**は、下図を参考にして[re
 
 - 既存の `wd14-tagger` は、`protobuf` というPythonライブラリに対するバージョン要求がreForgeの要求と不整合になっており、`Update.bat` 実行時などにエラーメッセージが出力されていたため、hirorohi03が修正した [`wd14-tagger`](https://github.com/hirorohi03/stable-diffusion-webui-wd14-tagger)に変更しました。
 	- 既に不整合になっているPythonライブラリは自動で回復しませんので、[更新のトラブルシューティング](https://github.com/hirorohi03/EasyReforge/wiki/%E3%83%88%E3%83%A9%E3%83%96%E3%83%AB%E3%82%B7%E3%83%A5%E3%83%BC%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0#%E6%9B%B4%E6%96%B0%E3%81%AE%E3%83%88%E3%83%A9%E3%83%96%E3%83%AB%E3%82%B7%E3%83%A5%E3%83%BC%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0)に記載のとおり、`venv` を削除＆再作成してください。
-	- venvは7GB以上のサイズがあるため削除＆再作成には相応の時間を要します。削除＆再作成ではなく個別に不要なPythonライブラリを削除して修正する場合は`Reforge_Activate.bat`を実行して開くコマンドプロンプトで以下のコマンドを実行した後に 'Update.bat' を実行してください。
+	- `venv` は7GB以上のサイズがあるため削除＆再作成には相応の時間を要します。削除＆再作成ではなく個別に不要なPythonライブラリを削除して修正する場合は`Reforge_Activate.bat`を実行して開くコマンドプロンプトで以下のコマンドを実行した後に 'Update.bat' を実行してください。
 ```
 pip uninstall deepdanbooru
 pip uninstall tensorflow
@@ -111,9 +111,9 @@ pip uninstall opencv_python_headless
 
 ### 2026/4/3
 
-- [Stable Diffusion WebUI Forge - Neo](https://github.com/Haoming02/sd-webui-forge-classic)からのSpectrum Integrated ((sd_forge_spectrum)[https://github.com/Haoming02/sd-webui-forge-classic/tree/ae4e34e2fcf38eb64f77892bdc941b2444e5eaf3/extensions-builtin/sd_forge_spectrum])の流用をやめ、拡張機能の[sd-webui-forge-spectrum](https://github.com/hirorohi03/sd-webui-forge-spectrum)を追加しました。
+- [Stable Diffusion WebUI Forge - Neo](https://github.com/Haoming02/sd-webui-forge-classic)からのSpectrum Integrated ([sd_forge_spectrum](https://github.com/Haoming02/sd-webui-forge-classic/tree/ae4e34e2fcf38eb64f77892bdc941b2444e5eaf3/extensions-builtin/sd_forge_spectrum))の流用をやめ、拡張機能の[sd-webui-forge-spectrum](https://github.com/hirorohi03/sd-webui-forge-spectrum)を追加しました。
 	- 既にインストール済みのSpectrum Integratedは自動で削除されませんので、不要な場合はユーザー自身でエクスプローラー等を使ってstable-diffusion-webui-reForge\extensions-builtin\sd_forge_spectrumをフォルダごと削除してください。
-	- [sd-webui-forge-spectrum](https://github.com/hirorohi03/sd-webui-forge-spectrum)は品質が低いという報告もありますので、気になる場合はSpectrum Integratedを残しておくか、既にSpectrum Integratedを削除してしまった場合は(sd-webui-reforge-spectrum)[https://github.com/wai55555/sd-webui-reforge-spectrum]を試してみてください。
+	- [sd-webui-forge-spectrum](https://github.com/hirorohi03/sd-webui-forge-spectrum)は品質が低いという報告もありますので、気になる場合はSpectrum Integratedを残しておくか、既にSpectrum Integratedを削除してしまった場合は[sd-webui-reforge-spectrum](https://github.com/wai55555/sd-webui-reforge-spectrum)を試してみてください。
 
 ### 2026/3/26
 

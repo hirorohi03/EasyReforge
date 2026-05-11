@@ -67,15 +67,18 @@ if %ERRORLEVEL% equ 0 ( goto :EASY_GIT_FOUND )
 cd > NUL
 
 set PORTABLE_GIT_BIN=%EASY_GIT_DIR%\env\PortableGit\bin
-set PORTABLE_GIT_VERSION=2.53.0.2
+@REM パッチバージョンは4個目が追加される (2.53.0, 2.53.0.2, 2.53.0.3, ...)
+set PORTABLE_GIT_VERSION=2.53.0.3
+set PORTABLE_GIT_BASE=2.53.0
+set PORTABLE_GIT_PATCH=3
 
 if not exist %PORTABLE_GIT_BIN%\ (
 	setlocal enabledelayedexpansion
 	if not exist "%EASY_GIT_DIR%\env\" ( mkdir "%EASY_GIT_DIR%\env" )
 	echo https://github.com/git-for-windows/git/
 
-	echo %CURL_CMD% -o %EASY_GIT_DIR%\env\PortableGit.7z.exe https://github.com/git-for-windows/git/releases/download/v%PORTABLE_GIT_VERSION%.windows.1/PortableGit-%PORTABLE_GIT_VERSION%-64-bit.7z.exe
-	%CURL_CMD% -o %EASY_GIT_DIR%\env\PortableGit.7z.exe https://github.com/git-for-windows/git/releases/download/v%PORTABLE_GIT_VERSION%.windows.1/PortableGit-%PORTABLE_GIT_VERSION%-64-bit.7z.exe
+	echo %CURL_CMD% -o %EASY_GIT_DIR%\env\PortableGit.7z.exe https://github.com/git-for-windows/git/releases/download/v%PORTABLE_GIT_BASE%.windows.%PORTABLE_GIT_PATCH%/PortableGit-%PORTABLE_GIT_VERSION%-64-bit.7z.exe
+	%CURL_CMD% -o %EASY_GIT_DIR%\env\PortableGit.7z.exe https://github.com/git-for-windows/git/releases/download/v%PORTABLE_GIT_BASE%.windows.%PORTABLE_GIT_PATCH%/PortableGit-%PORTABLE_GIT_VERSION%-64-bit.7z.exe
 	if !ERRORLEVEL! neq 0 ( pause & endlocal & exit /b 1 )
 
 	start "" %PS_CMD% -Command "Start-Sleep -Seconds 5; $title='Portable Git for Windows 64-bit'; $window=Get-Process | Where-Object { $_.MainWindowTitle -eq $title } | Select-Object -First 1; if ($window -ne $null) { [void][System.Reflection.Assembly]::LoadWithPartialName('Microsoft.VisualBasic'); [Microsoft.VisualBasic.Interaction]::AppActivate($window.Id); Start-Sleep -Seconds 1; Add-Type -AssemblyName System.Windows.Forms; [System.Windows.Forms.SendKeys]::SendWait('{ENTER}') }"

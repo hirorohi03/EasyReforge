@@ -59,7 +59,7 @@ if exist %~dp0stable-diffusion-webui-reForge\ (
 echo "未成年の方は利用できません。"
 echo "動作に必要なモデルなどをダウンロードします。よろしいですか？ [y/n]（空欄なら y）"
 echo "Download Model etc. Are you sure? [y/n] (default: y)"
-set /p DOWNLOAD_MDOEL_YES_OR_NO=
+set /p DOWNLOAD_MODEL_YES_OR_NO=
 
 @REM ---- ここから Git/Git_SetPath.bat と同期 ----
 where /Q git
@@ -112,7 +112,7 @@ if %ERRORLEVEL% neq 0 ( exit /b 1 )
 call %PROJECT_SETUP_BAT%
 if %ERRORLEVEL% neq 0 ( exit /b 1 )
 
-if /i "%DOWNLOAD_MDOEL_YES_OR_NO%" == "n" ( goto :FINALIZE )
+if /i "%DOWNLOAD_MODEL_YES_OR_NO%" == "n" ( goto :FINALIZE )
 call %PROJECT_MODEL_DOWNLOAD_BAT%
 @REM if %ERRORLEVEL% neq 0 ( exit /b 1 )
 

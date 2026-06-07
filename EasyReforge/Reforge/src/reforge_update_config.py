@@ -1,6 +1,7 @@
 ﻿import json
 import os
 import sys
+import winreg
 from datetime import datetime
 
 
@@ -14,6 +15,7 @@ class ReforgeConfig:
             "0.1.2": self.update_0_1_2,
             "0.1.4": self.update_0_1_4,
             "0.1.5": self.update_0_1_5,
+            "0.2.6": self.update_0_2_6,
         }
         self.styles_csv_path = os.path.join(os.path.dirname(cfg_path), "styles.csv")
 
@@ -119,7 +121,20 @@ class ReforgeConfig:
 #
 #        cfg["stealth_pnginfo_option"] = "None"
 #
+    def update_0_2_6(self, cfg):
+        cfg["easy_reforge_config_version"] = "0.3.0"
 
+        key_path = r"Software\Microsoft\Windows\CurrentVersion\Themes\Personalize"
+        with winreg.OpenKey(winreg.HKEY_CURRENT_USER, key_path) as key:
+            value, _ = winreg.QueryValueEx(key, "AppsUseLightTheme")
+        if not value:
+            cfg["enable_checker_custom_color"] = True
+            cfg["enable_checker_custom_color_enable"] = "#076f75"
+            cfg["enable_checker_custom_color_disable"] = "#636363"
+            cfg["enable_checker_custom_color_dropdown_enable"] = "#233873"
+            cfg["enable_checker_custom_color_dropdown_disable"] = "#636363"
+            cfg["enable_checker_custom_color_zero_weihgt"] = "#636363"
+            cfg["enable_checker_custom_color_invalid_additional_networks"] = "#ed9797"
 
 if __name__ == "__main__":
     forge_config = ReforgeConfig(sys.argv[1])

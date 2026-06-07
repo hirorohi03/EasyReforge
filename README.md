@@ -91,6 +91,12 @@ reForge本体の**コミットハッシュ値**は、下図を参考にして[re
 
 - **更新で編集したスタイルが巻き戻った場合は、`stable-diffusion-webui-reForge\sytles.csv` の横にある日付付きバックアップファイルからコピペして復元してください。**
 
+### 2026/6/8
+
+- ダークモード利用時に Enable Checker ([sd-webui-enable-checker](https://github.com/shirayu/sd-webui-enable-checker)) の背景色が明るく白文字が読みづらいという意見があったため、新規インストールまたは今回の更新以降に `Update.bat` した後の初回起動時にダークモードを利用している場合は、`Settings` > `Enable Checker` の `Use custom colors` を有効にして暗い色を変更するようにしました。
+> [!IMPORTANT]
+> Enable Checkerの色をダークモード用に変更すると、ライトモードでは逆に見えづらくなります。もしもダークモードからライトモードに変更した場合は `Use custom colors` のチェックを外してください
+
 ### 2026/4/20
 
 - [追加データのダウンロード](https://github.com/hirorohi03/EasyReforge/#%E8%BF%BD%E5%8A%A0%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E3%83%80%E3%82%A6%E3%83%B3%E3%83%AD%E3%83%BC%E3%83%89) のダウンロード先を civitai.com から civitai.red に変更しました。なおEasyReforgeリポジトリで関係するのはコメントのみであり、主処理はEasyToolsリポジトリにあります。
